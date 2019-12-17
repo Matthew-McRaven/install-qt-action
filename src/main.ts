@@ -73,11 +73,11 @@ async function run() {
 
     // Install installer framework tools for all platforms.
     let iargs = ["tools_ifw", "3.2.0", "qt.tools.ifw.32"];
-    let msvcargs = ["tools_vcredist", "2019-02-13-1", "qt.tools.vcredist_msvc2017_x64"];
+    //let msvcargs = ["tools_vcredist", "2019-02-13-1", "qt.tools.vcredist_msvc2017_x64"];
     switch(process.platform) {
       case "win32": {
           await exec.exec(`${pythonName} -m aqt tool windows`, iargs);
-          await exec.exec(`${pythonName} -m aqt tool windows`, msvcargs);
+          //await exec.exec(`${pythonName} -m aqt tool windows`, msvcargs);
       }
       case "darwin": {
           await exec.exec(`${pythonName} -m aqt tool mac`, iargs);
