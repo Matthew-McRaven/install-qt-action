@@ -72,16 +72,18 @@ async function run() {
     }
 
     // Install installer framework tools for all platforms.
+    let iargs = ["tools_ifw", "3.1.1", "qt.tools.ifw.31"];
+    let msvcargs = ["tools_vcredist", "2019-02-13-1", "qt.tools.vcredist_msvc2017_x64"];
     switch(process.platform) {
       case "win32": {
-          await exec.exec(`${pythonName} -m aqt tool windows tools_ifw 3.1.1 qt.tools.ifw.31`);
-          await exec.exec(`${pythonName} -m aqt tool windows tools_vcredist 2019-02-13-1 qt.tools.vcredist_msvc2017_x64`);
+          await exec.exec(`${pythonName} -m aqt tool windows`, iargs);
+          await exec.exec(`${pythonName} -m aqt tool windows`, msvcargs);
       }
       case "darwin": {
-          await exec.exec(`${pythonName} -m aqt tool mac tools_ifw 3.1.1 qt.tools.ifw.31`);
+          await exec.exec(`${pythonName} -m aqt tool mac`, iargs);
       }
       default: {
-          await exec.exec(`${pythonName} -m aqt tool linux tools_ifw 3.1.1 qt.tools.ifw.31`);
+          await exec.exec(`${pythonName} -m aqt tool linux`, iargs);
       }
     }
     //run aqtinstall with args
