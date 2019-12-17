@@ -77,13 +77,16 @@ async function run() {
     switch(process.platform) {
       case "win32": {
           await exec.exec(`${pythonName} -m aqt tool windows`, iargs);
+          break;
           //await exec.exec(`${pythonName} -m aqt tool windows`, msvcargs);
       }
       case "darwin": {
           await exec.exec(`${pythonName} -m aqt tool mac`, iargs);
+          break;
       }
       default: {
           await exec.exec(`${pythonName} -m aqt tool linux`, iargs);
+          break;
       }
     }
     //run aqtinstall with args
