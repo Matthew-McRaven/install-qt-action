@@ -30,14 +30,18 @@ async function run() {
     if (!host) {
       switch(process.platform) {
         case "win32": {
+            await exec.exec(`${pythonName} -m aqt tool aqt tool windows tools_ifw 3.1.1 qt.tools.ifw.31`);
+            await exec.exdc(`${pythonName} -m aqt  tool windows tools_vcredist 2019-02-13-1 qt.tools.vcredist_msvc2017_x64`);
             host = "windows";
             break;
         }
         case "darwin": {
+            await exec.exec(`${pythonName} -m aqt tool aqt tool mac tools_ifw 3.1.1 qt.tools.ifw.31`);
             host = "mac";
             break;
         }
         default: {
+            await exec.exec(`${pythonName} -m aqt tool aqt tool linux tools_ifw 3.1.1 qt.tools.ifw.31`);
             host = "linux";
             break;
         }
